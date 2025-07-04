@@ -15,7 +15,6 @@ const option: echarts.EChartsOption = {
     left: 50,
     right: "4%",
     bottom: 150,
-    //containLabel: true
   },
   yAxis: {
     type: "value",
@@ -120,6 +119,7 @@ const option: echarts.EChartsOption = {
       label: {
         show: true,
         position: "top",
+        offset:[0,-15],//微调数值位置
         formatter: "{c}%", // 格式化为百分比
       },
       markLine: {
@@ -276,7 +276,6 @@ const option: echarts.EChartsOption = {
       type: "custom",
       //@ts-expect-error
       renderItem: function (params, api) {
-        debugger;
         var valX = api.value(0);
         var pointA = api.coord([valX, 0]);
         //@ts-expect-error
@@ -287,7 +286,7 @@ const option: echarts.EChartsOption = {
           style: {
             text: api.value(2),
             x: (pointA[0] + pointB[0]) / 2,
-            y: 320, //距上方距离
+            y: 320, //距上方距离,按需调整
             fill: "#333",
             fontSize: 14,
             textAlign: "center",
