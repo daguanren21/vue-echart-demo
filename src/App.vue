@@ -86,7 +86,7 @@ const option: echarts.EChartsOption = {
       splitArea:{
         show:true,
         interval:(index,value)=>{
-          return value==='4.12-4.18'
+          return value==='4.12-4.18' //设置间隔区域
         }
       },
       boundaryGap: true,
