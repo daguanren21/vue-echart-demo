@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTemplateRef, onMounted, nextTick } from "vue";
+import { useTemplateRef, nextTick } from "vue";
 import * as echarts from "echarts";
 const echartRef = useTemplateRef<HTMLElement>("echart");
 
@@ -25,6 +25,7 @@ const option: echarts.EChartsOption = {
     splitLine: {
       show: false,
     },
+    
     axisLabel: {
       formatter: "{value}%", // 格式化为百分比
     },
@@ -81,6 +82,12 @@ const option: echarts.EChartsOption = {
       },
       splitLine: {
         show: true,
+      },
+      splitArea:{
+        show:true,
+        interval:(index,value)=>{
+          return value==='4.12-4.18'
+        }
       },
       boundaryGap: true,
       axisTick: {
@@ -209,8 +216,6 @@ const option: echarts.EChartsOption = {
         null,
         null,
         null,
-        null,
-        null,
         99,
         96,
         97.3,
@@ -225,8 +230,6 @@ const option: echarts.EChartsOption = {
       type: "line",
       smooth: true,
       data: [
-        null,
-        null,
         null,
         null,
         null,
